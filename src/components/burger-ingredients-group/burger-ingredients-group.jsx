@@ -14,17 +14,18 @@ function BurgerIngredientsGroup({ title, ingridients }) {
                     .map((ingridient) => (
                         <BurgerIngredientCard
                             key={ingridient._id}
-                            _id={ingridient._id}
-                            type={ingridient.type}
-                            name={ingridient.name}
-                            image={ingridient.image}
-                            image_large={ingridient.image_large}
-                            image_mobile={ingridient.image_mobile}
-                            calories={ingridient.calories}
-                            carbohydrates={ingridient.carbohydrates}
-                            fat={ingridient.fat}
-                            proteins={ingridient.proteins}
-                            price={ingridient.price}
+                            // _id={ingridient._id}
+                            // type={ingridient.type}
+                            // name={ingridient.name}
+                            // image={ingridient.image}
+                            // image_large={ingridient.image_large}
+                            // image_mobile={ingridient.image_mobile}
+                            // calories={ingridient.calories}
+                            // carbohydrates={ingridient.carbohydrates}
+                            // fat={ingridient.fat}
+                            // proteins={ingridient.proteins}
+                            // price={ingridient.price}
+                            ingridient = {ingridient}
                         />
                     ))}
             </div>

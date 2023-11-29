@@ -5,7 +5,7 @@ import Modal from '../modal-window/modal-window';
 import IngredientDetailsCard from '../ingredient-details-card/ingredient-details-card';
 import cardTypes from '../../utils/propsType';
 
-const BurgerIngredientCard = (ingridient) => {
+const BurgerIngredientCard = ({ingridient}) => {
     const [isModalOpen, setIsOpenModal] = React.useState(false);
 
     return (
@@ -16,7 +16,7 @@ const BurgerIngredientCard = (ingridient) => {
                     onClick={() => setIsOpenModal(true)}
                 >
                     <div>
-                        <img src={ingridient.image} />
+                        <img src={ingridient.image} alt={ingridient.name}/>
                     </div>
                     <div className={styles.inner}>
                         <span>{ingridient.price}</span>
@@ -24,7 +24,7 @@ const BurgerIngredientCard = (ingridient) => {
                     </div>
                     <p>{ingridient.name}</p>
                 </div>
-                <Counter style={{ position: 'absolute', top: '0', right: '20px' }} />
+                <Counter className='counter'/>
             </div>
             {
                 isModalOpen && <Modal
@@ -32,13 +32,14 @@ const BurgerIngredientCard = (ingridient) => {
                     setIsModalOpen={() => setIsOpenModal(false)}
                     title={'Детали ингридиента'}>
                     <IngredientDetailsCard
-                        _id={ingridient._id}
-                        name={ingridient.name}
-                        image_large={ingridient.image_large}
-                        proteins={ingridient.proteins}
-                        calories={ingridient.calories}
-                        fat={ingridient.fat}
-                        carbohydrates={ingridient.carbohydrates}
+                        // _id={ingridient._id}
+                        // name={ingridient.name}
+                        // image_large={ingridient.image_large}
+                        // proteins={ingridient.proteins}
+                        // calories={ingridient.calories}
+                        // fat={ingridient.fat}
+                        // carbohydrates={ingridient.carbohydrates}
+                        ingredient={ingridient}
                     />
                 </Modal>
             }

@@ -1,7 +1,7 @@
 import styles from './ingredient-details-card.module.css';
 import cardTypes from '../../utils/propsType';
 
-const IngredientDetailsCard = (ingredient) => {
+const IngredientDetailsCard = ({ingredient}) => {
 
     return (
         <div className={`${styles.wrapper} mt-4`}>

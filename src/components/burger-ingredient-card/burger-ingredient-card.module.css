@@ -14,3 +14,9 @@
     align-items: center;
     gap: 5px;
 }
+
+.counter {
+    position: 'absolute'; 
+    top: '0'; 
+    right: '20px';
+}

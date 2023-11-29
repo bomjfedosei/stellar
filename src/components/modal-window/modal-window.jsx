@@ -40,7 +40,7 @@ const Modal = ({ setIsModalOpen, title, children }) => {
             </div>
             <ModalOverlay setIsModalOpen={setIsModalOpen} />
         </>,
-        modalRoot);
+        document.getElementById('root'));
 }
 
 
