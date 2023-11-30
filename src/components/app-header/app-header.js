@@ -13,7 +13,7 @@ function AppHeader() {
 
 
   return (
-    <div className={styles.header} >
+    <header className={styles.header} >
       <div className={styles.wrapper}>
         <AppHeaderItem
           onClick={() => setActive("Конструктор")}
@@ -34,7 +34,7 @@ function AppHeader() {
           text="Личный кабинет"
           icon={<ProfileIcon />} />
       </div>
-    </div >
+    </header >
   );
 }
 

@@ -13,6 +13,13 @@
   }
 }
 
+.inner
+{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 100px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

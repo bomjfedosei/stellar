@@ -4,6 +4,7 @@ import AppHeader from '../app-header/app-header';
 
 import BurgerIngredients from '../burger-ingredients/burger-ingredients'
 import BurgerConstructor from '../burger-constructor/burger-constructor'
+import styles from './app.module.css'
 
 
 const API = `https://norma.nomoreparties.space/api`;
@@ -31,13 +32,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App" >
+    <main className="App">
       <AppHeader />
-      <div style={{ display: 'flex', justifyContent: 'space-around', padding: '0 100px', }}>
+      <div className={styles.inner}>
         <BurgerIngredients title={'Соберите бургер'} ingridients={state.data} />
         <BurgerConstructor ingridients={state.data} />
       </div >
-    </div >
+    </main >
   );
 }
 

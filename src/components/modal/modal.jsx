@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './modal-window.module.css'
+import styles from './modal.module.css'
 
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ModalOverlay from '../modal-overlay/modal-overlay'
@@ -40,7 +40,7 @@ const Modal = ({ setIsModalOpen, title, children }) => {
             </div>
             <ModalOverlay setIsModalOpen={setIsModalOpen} />
         </>,
-        document.getElementById('root'));
+        document.getElementById('modals'));
 }
 
 
