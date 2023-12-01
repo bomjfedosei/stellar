@@ -32,13 +32,15 @@ function App() {
   }, []);
 
   return (
+    <>
+    <AppHeader />
     <main className="App">
-      <AppHeader />
       <div className={styles.inner}>
         <BurgerIngredients title={'Соберите бургер'} ingridients={state.data} />
         <BurgerConstructor ingridients={state.data} />
       </div >
     </main >
+    </>
   );
 }
 
