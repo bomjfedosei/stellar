@@ -1,12 +1,12 @@
-import styles from './ingredient-details-card.module.css';
+import styles from './ingredient-details.module.css';
 import cardTypes from '../../utils/propsType';
 
-const IngredientDetailsCard = ({ingredient}) => {
+const IngredientDetails = ({ingredient}) => {
 
     return (
         <div className={`${styles.wrapper} mt-4`}>
             <div>
-                <img src={ingredient.image_large} />
+                <img src={ingredient.image_large} alt={ingredient.name} />
             </div>
             <h2 className={`${styles.subtitle} mt-4`}>{ingredient.name}</h2>
             <div className={`${styles.block} mt-8`}>
@@ -31,6 +31,6 @@ const IngredientDetailsCard = ({ingredient}) => {
     )
 }
 
-IngredientDetailsCard.propTypes = { cardTypes };
+IngredientDetails.propTypes = { cardTypes };
 
-export default IngredientDetailsCard;
+export default IngredientDetails;

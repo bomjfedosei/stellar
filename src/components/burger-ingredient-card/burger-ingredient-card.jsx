@@ -3,7 +3,7 @@ import { Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-c
 import styles from './burger-ingredient-card.module.css';
 
 import Modal from '../modal/modal';
-import IngredientDetailsCard from '../ingredient-details-card/ingredient-details-card';
+import IngredientDetails from '../ingredient-details/ingredient-details';
 import cardTypes from '../../utils/propsType';
 
 import { useDrag } from "react-dnd";
@@ -50,7 +50,7 @@ const BurgerIngredientCard = ({ingridient}) => {
 
                 >
                     <div ref={dragRef}>
-                        <img src={ingridient.image} />
+                        <img src={ingridient.image} alt={ingridient.name} />
                     </div>
                     <div className={styles.inner}>
                         <span>{ingridient.price}</span>
@@ -58,14 +58,14 @@ const BurgerIngredientCard = ({ingridient}) => {
                     </div>
                     <p>{ingridient.name}</p>
                 </div>
-                <Counter count={count} style={{ position: 'absolute', top: '0', right: '20px' }} />
+                <Counter count={count} className={styles.counter} />
             </div>
             {
                 isModalOpen && <Modal
                     children={ingridient}
                     setIsOpenModal={() => { setIsOpenModal(false); updateupdateconstructorIngridients() }}
                     title={'Детали ингридиента'}>
-                    <IngredientDetailsCard
+                    <IngredientDetails
                         // _id={ingridient._id}
                         // name={ingridient.name}
                         // image_large={ingridient.image_large}

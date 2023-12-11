@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import styles from './app.module.css'
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const App = () => {
       {isLoading ? (
         <h1>Пожайлуста, подождите ...</h1>
       ) : (
-        < div style={{ display: 'flex', justifyContent: 'space-around', padding: '0 100px', }}>
+        <div className={styles.inner}>
           <DndProvider backend={HTML5Backend}>
             <BurgerIngredients title={'Соберите бургер'} ingridients={ingridients} />
             <BurgerConstructor />

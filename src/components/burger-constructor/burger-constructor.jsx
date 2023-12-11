@@ -10,6 +10,7 @@ import BurgerConstructorPlug from '../burger-constructor-plug/burger-constructor
 import BurgerConstructorList from '../burger-constructor-list/burger-constructor-list'
 import BurgerConstructorTotal from '../burger-constructor-total/burger-constructor-total'
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import uniqid from 'uniqid';
 
 import { ADD_INGRIDIENT, ADD_BUN, SET_TOTALPRICE } from '../../services/actions/burger-constructor'
 
@@ -21,12 +22,13 @@ const BurgerConstructor = () => {
     const [, dropTarget] = useDrop({
         accept: 'ingridient',
         drop: ({ ingridient }) => {
+            const unid = uniqid()
             if (ingridient.type === 'bun') {
-                dispatch({ type: ADD_BUN, ingridient })
+                dispatch({ type: ADD_BUN, ingridient, uniqid: unid })
             } else {
-                dispatch({ type: ADD_INGRIDIENT, ingridient })
+                dispatch({ type: ADD_INGRIDIENT, ingridient, uniqid: unid })
             }
-            dispatch({ type: SET_TOTALPRICE, ingridient })
+            dispatch({ type: SET_TOTALPRICE, ingridient, uniqid: unid })
         }
     });
 

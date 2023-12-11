@@ -6,7 +6,7 @@ import {
     SORT_INGRIDIENT
 } from '../actions/burger-constructor';
 
-import uniqid from 'uniqid';
+
 
 const initialState = {
     bun: null,
@@ -28,7 +28,7 @@ export const burgerConstructorReducer = (state = initialState, action) => {
                 ...state,
                 constructorIngridients: [
                     ...state.constructorIngridients,
-                    { ...rest.ingridient, uniqid: uniqid() }
+                    { ...rest.ingridient, uniqid: action.uniqid }
                 ]
             }
         }

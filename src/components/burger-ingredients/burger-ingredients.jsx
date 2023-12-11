@@ -39,9 +39,9 @@ const BurgerIngredients = ({ title, ingridients }) => {
         </Link>
       </div>
       <div className={`${styles.cardsContainer} custom-scroll`} id="containerElement">
-        <BurgerIngredientsGroup name="bun" title='Булки' ingridients={bun} />
-        <BurgerIngredientsGroup name="main" title='Начинки' ingridients={main} />
-        <BurgerIngredientsGroup name="sauces" title='Соусы' ingridients={sauces} />
+        <BurgerIngredientsGroup id="bun" title='Булки' ingridients={bun}/>
+        <BurgerIngredientsGroup id="main" title='Начинки' ingridients={main} />
+        <BurgerIngredientsGroup id="sauces" title='Соусы' ingridients={sauces} />
       </div>
     </div>
   );
