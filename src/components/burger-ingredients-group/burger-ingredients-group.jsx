@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import BurgerIngredientCard from '../burger-ingredient-card/burger-ingredient-card';
 
-function BurgerIngredientsGroup({ title, ingridients, id }) {
+function BurgerIngredientsGroup({ title, ingridients, id, Ref }) {
 
     return (
-        <div className='pt-10' id={id}>
+        <div className='pt-10' id={id} ref={Ref}>
             <h1 className={styles.title}>{title}</h1>
             <div className={styles.cards}>
                 {ingridients
