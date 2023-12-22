@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const BurgerIngredients = ({ title, ingridients }) => {
   const [current, setCurrent] = React.useState('Булки');
-
   const [bunsRef, bunsInView, bunsTab] = useInView({ threshold: 0 });
   const [saucesRef, saucesInView, saucesTab] = useInView({ threshold: 0 });
   const [mainsRef, mainsInView, mainsTab] = useInView({ threshold: 0 });
@@ -44,15 +43,15 @@ const BurgerIngredients = ({ title, ingridients }) => {
       <div className={`${styles.tabs} pt-5`}>
         <Link to="bun" spy={true} smooth={true} offset={0} duration={800} containerId="containerElement"
           onSetActive={() => setCurrent('Булки')}>
-          <Tab value="Булки" active={current === 'Булки'} onClick={()=> onTabClick("Булки", bunsTab)}>Булки</Tab>
+          <Tab value="Булки" active={current === 'Булки'} onClick={()=> onTabClick("Булки", bunsRef)}>Булки</Tab>
         </Link>
         <Link to="main" spy={true} smooth={true} offset={30} duration={800} containerId="containerElement"
           onSetActive={() => setCurrent('Начинки')}>
-          <Tab value="Начинки" active={current === 'Начинки'} onClick={()=> onTabClick("Начинки", mainsTab)}>Начинки</Tab>
+          <Tab value="Начинки" active={current === 'Начинки'} onClick={()=> onTabClick("Начинки", mainsRef)}>Начинки</Tab>
         </Link>
         <Link to="sauces" spy={true} smooth={true} offset={28} duration={800} containerId="containerElement"
           onSetActive={() => setCurrent('Соусы')}>
-          <Tab value="Соусы" active={current === 'Соусы'} onClick={()=> onTabClick("Соусы", saucesTab)}>Соусы</Tab>
+          <Tab value="Соусы" active={current === 'Соусы'} onClick={()=> onTabClick("Соусы", saucesRef)}>Соусы</Tab>
         </Link>
       </div>
       <div className={`${styles.cardsContainer} custom-scroll`} id="containerElement">
