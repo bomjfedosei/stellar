@@ -1,22 +1,56 @@
 import React from 'react';
 import { Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './burger-ingredient-card.module.css';
+
 import Modal from '../modal/modal';
-import IngredientDetailsCard from '../ingredient-details-card/ingredient-details-card';
+import IngredientDetails from '../ingredient-details/ingredient-details';
 import cardTypes from '../../utils/propsType';
+
+import { useDrag } from "react-dnd";
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_CURRENT_INGRIDIENT, REMOVE_CURRENT_INGRIDIENT } from '../../services/actions/current-ingridient'
 
 const BurgerIngredientCard = ({ingridient}) => {
     const [isModalOpen, setIsOpenModal] = React.useState(false);
+    const { currentIngridient } = useSelector(state => state.currentIngridient);
+    const { bun, constructorIngridients } = useSelector(state => state.burgerConstrucor);
+
+    const count = React.useMemo(() => {
+        const result = ingridient.type === 'bun'
+            ? bun?._id === ingridient._id ? 2 : 0
+            : constructorIngridients.filter((item) => item._id === ingridient._id).length
+        return result;
+    }, [ingridient, bun, constructorIngridients])
+
+
+    const updateupdateconstructorIngridients = () => {
+        if (currentIngridient) {
+            dispatch({ type: REMOVE_CURRENT_INGRIDIENT, ingridient })
+        } else {
+            dispatch({ type: GET_CURRENT_INGRIDIENT, ingridient })
+        }
+    }
+
+    const dispatch = useDispatch();
+
+    const [, dragRef] = useDrag({
+        type: 'ingridient',
+        item: { ingridient },
+        collect: monitor => ({
+            isDrag: monitor.isDragging()
+        })
+    });
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.container} >
                 <div
                     className={`${styles.wrapper} pt-6`}
-                    onClick={() => setIsOpenModal(true)}
+                    onClick={() => { setIsOpenModal(true); updateupdateconstructorIngridients() }}
+
                 >
-                    <div>
-                        <img src={ingridient.image} alt={ingridient.name}/>
+                    <div ref={dragRef}>
+                        <img src={ingridient.image} alt={ingridient.name} />
                     </div>
                     <div className={styles.inner}>
                         <span>{ingridient.price}</span>
@@ -24,14 +58,14 @@ const BurgerIngredientCard = ({ingridient}) => {
                     </div>
                     <p>{ingridient.name}</p>
                 </div>
-                <Counter className='counter'/>
+                <Counter count={count} className={styles.counter} />
             </div>
             {
                 isModalOpen && <Modal
                     children={ingridient}
-                    setIsModalOpen={() => setIsOpenModal(false)}
+                    setIsOpenModal={() => { setIsOpenModal(false); updateupdateconstructorIngridients() }}
                     title={'Детали ингридиента'}>
-                    <IngredientDetailsCard
+                    <IngredientDetails
                         // _id={ingridient._id}
                         // name={ingridient.name}
                         // image_large={ingridient.image_large}
@@ -49,4 +83,4 @@ const BurgerIngredientCard = ({ingridient}) => {
 
 BurgerIngredientCard.propTypes = { cardTypes };
 
-export default BurgerIngredientCard;
+export default BurgerIngredientCard;                        
