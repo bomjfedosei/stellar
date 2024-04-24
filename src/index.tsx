@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Main from './Main';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { thunk }  from 'redux-thunk';
+import thunk   from 'redux-thunk';
 import {composeWithDevTools} from '@redux-devtools/extension';
 import { rootReducer } from './services/reducers/index';
 import { assertPipelineBareFunction } from '@babel/types';
@@ -31,7 +31,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Main />
       </BrowserRouter >
     </Provider>
   </React.StrictMode>

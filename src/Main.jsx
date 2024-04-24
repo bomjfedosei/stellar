@@ -1,5 +1,5 @@
 
-import './App.css';
+import styles from './Main.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import AppHeader from './components/app-header/app-header';
 
@@ -19,13 +19,13 @@ import ProfileInfo from './pages/profile/profile-info/profile-info';
 import Modal from './components/modal/modal';
 import OrderDetails from './components/order-details/order-details';
 
-const App = () => {
+const Main = () => {
   const location = useLocation();
   const background = location.state && location.state.background;
 
   return (
-    <div className="App">
-      <AppHeader />
+    <div className={styles.AppHeader}>
+      <AppHeader className={styles.AppHeader}/>
       <Routes location={background || location}>
         <Route path="/" element={<HomePage />} />
         <Route path="ingridients/:id" element={<IngredientDetailsCard />} />
@@ -64,4 +64,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Main;

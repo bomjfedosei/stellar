@@ -20,10 +20,10 @@ const App = () => {
     dispatch(getIngredients())
   }, [dispatch]);
 
-
+  console.log(styles.AppHeader);
   return (
-    <div className="App" >
-      <AppHeader />
+    <div className={styles.App} >
+      <AppHeader className={styles.AppHeader}/>
       {isLoading ? (
         <h1>Пожайлуста, подождите ...</h1>
       ) : (
