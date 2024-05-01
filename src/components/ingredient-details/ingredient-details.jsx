@@ -17,9 +17,9 @@ const IngredientDetailsCard = () => {
 
     const current = ingridients.find((ingredient) => ingredient._id === id)
 
-    React.useEffect(() => {
-        dispatch(getIngredients())
-    }, [dispatch]);
+    // React.useEffect(() => {
+    //     dispatch(getIngredients())
+    // }, [dispatch]);
 
     React.useEffect(() => {
         if (current) {

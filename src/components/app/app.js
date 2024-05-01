@@ -16,9 +16,9 @@ const App = () => {
   const dispatch = useDispatch();
   const { ingridients, isLoading } = useSelector(store => store.ingridients);
 
-  useEffect(() => {
-    dispatch(getIngredients())
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getIngredients())
+  // }, [dispatch]);
 
   console.log(styles.AppHeader);
   return (
