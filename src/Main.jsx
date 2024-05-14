@@ -10,6 +10,9 @@ import { ResetPasswordPage } from './pages/reset-password-page/reset-password-pa
 import { ForgotPasswordPage } from './pages/forgot-password-page/forgot-password-page';
 import { ProfilePage } from './pages/profile/profile';
 import { ProfileOrdersPage } from './pages/profile/profile-orders/profile-orders';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getIngredients } from './services/actions/ingridients'
 
 import { OrdersPage } from './pages/orders-page/orders-page';
 import IngredientDetailsCard from './components/ingredient-details/ingredient-details';
@@ -22,6 +25,11 @@ import OrderDetails from './components/order-details/order-details';
 const Main = () => {
   const location = useLocation();
   const background = location.state && location.state.background;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getIngredients())
+}, [dispatch]);
 
   return (
     <div className={styles.AppHeader}>

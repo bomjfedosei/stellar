@@ -11,12 +11,12 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 export const HomePage = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const { ingridients, succes, isLoading } = useSelector(store => store.ingridients);
 
-    useEffect(() => {
-        dispatch(getIngredients())
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getIngredients())
+    // }, [dispatch]);
 
 
     return (
