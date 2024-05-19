@@ -1,34 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './components/app/app';
+import Main from './Main';
 import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { thunk } from 'redux-thunk';
-
+import { createStore, applyMiddleware } from 'redux';
+import thunk   from 'redux-thunk';
+import {composeWithDevTools} from '@redux-devtools/extension';
 import { rootReducer } from './services/reducers/index';
+import { assertPipelineBareFunction } from '@babel/types';
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
-  }
-}
+// declare global {
+//   interface Window {
+//     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
+//   }
+// }
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+// const composeEnhancers =
+//   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const enhancer = composeEnhancers(applyMiddleware(thunk));
+const enh = composeWithDevTools(applyMiddleware(thunk));
 
-const store = createStore(rootReducer, enhancer);
+const store = createStore(rootReducer, enh);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}><App /></Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter >
+    </Provider>
   </React.StrictMode>
 );
 

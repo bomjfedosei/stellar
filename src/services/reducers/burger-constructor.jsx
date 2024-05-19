@@ -6,7 +6,7 @@ import {
     SORT_INGRIDIENT
 } from '../actions/burger-constructor';
 
-
+import uniqid from 'uniqid';
 
 const initialState = {
     bun: null,
@@ -28,7 +28,7 @@ export const burgerConstructorReducer = (state = initialState, action) => {
                 ...state,
                 constructorIngridients: [
                     ...state.constructorIngridients,
-                    { ...rest.ingridient, uniqid: action.uniqid }
+                    { ...rest.ingridient, uniqid: uniqid() }
                 ]
             }
         }
@@ -48,8 +48,6 @@ export const burgerConstructorReducer = (state = initialState, action) => {
             }
         }
         case SORT_INGRIDIENT: {
-            // const item = state.constructorIngridients.splice(rest.from, 1)[0];
-            // state.constructorIngridients.splice(rest.to, 0, item);
             const prevState = [...state.constructorIngridients];
             const item = prevState[rest.rest.from]
 
