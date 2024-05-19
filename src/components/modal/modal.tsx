@@ -7,7 +7,7 @@ import ModalOverlay from '../modal-overlay/modal-overlay'
 import { useNavigate } from 'react-router-dom';
 
 
-const modalRoot = (document.getElementById("react-modals") as Element);
+const modalRoot = (document.getElementById("root") as Element);
 
 
 interface IModalOverlay {
