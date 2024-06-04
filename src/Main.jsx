@@ -15,9 +15,9 @@ import { useEffect } from 'react';
 import { getIngredients } from './services/actions/ingridients'
 
 import { OrdersPage } from './pages/orders-page/orders-page';
-import IngredientDetailsCard from './components/ingredient-details/ingredient-details';
+import IngredientDetailsCard from './components/ingredient-details-card/ingredient-details-card';
 import { ProtectedRouteElement } from './components/protected-route-element/protected-route-element';
-import { UnProtectedRouteElement } from './components/unprotected-route-element/unprotected-route-element.jsx';
+import { UnProtectedRouteElement } from './components/unprotected-route-element/unprotected-route-element.tsx';
 import ProfileInfo from './pages/profile/profile-info/profile-info';
 import Modal from './components/modal/modal';
 import OrderDetails from './components/order-details/order-details';

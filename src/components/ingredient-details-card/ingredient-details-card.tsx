@@ -1,6 +1,6 @@
-import styles from './ingredient-details.module.css';
-import cardTypes from '../../utils/propsType';
+import styles from './ingredient-details-card.module.css';
 import React from 'react';
+import { ICardTypes } from '../../utils/propsType';
 
 import { useParams } from 'react-router-dom';
 import { getIngredients } from '../../services/actions/ingridients'
@@ -11,15 +11,15 @@ const IngredientDetailsCard = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
 
-    const { ingridients, isLoading } = useSelector(store => store.ingridients);
-    const { currentIngridient } = useSelector(store => store.currentIngridient);
+    const { ingridients, isLoading } = useSelector((store: any) => store.ingridients);
+    const { currentIngridient } = useSelector((store: any) => store.currentIngridient);
 
 
-    const current = ingridients.find((ingredient) => ingredient._id === id)
+    const current = ingridients.find((ingredient: ICardTypes) => ingredient._id === id)
 
-    // React.useEffect(() => {
-    //     dispatch(getIngredients())
-    // }, [dispatch]);
+    React.useEffect(() => {
+        dispatch<any>(getIngredients())
+    }, [dispatch]);
 
     React.useEffect(() => {
         if (current) {
