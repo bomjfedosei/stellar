@@ -1,23 +1,22 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserData } from '../../services/actions/routers/get-profile-data';
+import { useSelector } from '../../services/typesOfStoreAndThunk';
 import { Navigate, useLocation } from 'react-router-dom'
-import { useEffect, FC } from 'react';
+import { FC } from 'react';
 
 interface IProtectedRouteElement {
-    element: React.ReactElement
+    element: React.ReactElement,
+    unAuth?: boolean
 }
 
-export const ProtectedRouteElement: FC<IProtectedRouteElement> = ({ element }) => {
-    const dispatch = useDispatch();
+export const ProtectedRouteElement: FC<IProtectedRouteElement> = ({ element, unAuth = false }) => {
     const location = useLocation();
 
-    const { isLoading, hasError, user: { isLogedIn } } = useSelector((state: any) => state.auth);
+    const { isUserDataLoaded, isLogedIn } = useSelector((store) => store.auth);
 
-    useEffect(() => {
-        dispatch<any>(getUserData())
-    }, [dispatch]);
+    if (!isUserDataLoaded) return <h1 style={{ textAlign: 'center' }}>Пожайлуста, подождите ...</h1>
 
-    if (isLoading) return <h1>Пожайлуста, подождите ...</h1>
-    if (hasError || (!isLoading && !isLogedIn)) return <Navigate to="/login" state={{ path: location }} replace />
+    if (!unAuth && !isLogedIn) return <Navigate to='/login' state={{ path: location }} replace />
+
+    if (unAuth && isLogedIn) return <Navigate to={location.state?.path || '/'} replace />
+
     return element;
 }

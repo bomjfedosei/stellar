@@ -1,7 +1,7 @@
 
 import styles from './Main.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import AppHeader from './components/app-header/app-header';
+import AppHeader from './components/header/header';
 
 import { HomePage } from './pages/home-page/home-page';
 import { LoginPage } from './pages/login-page/login-page';
