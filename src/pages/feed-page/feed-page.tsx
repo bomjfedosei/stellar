@@ -23,7 +23,7 @@ export const FeedPage = () => {
 
     useEffect(() => {
         dispatch(getAllOrdersConnect(wsUrl))
-        return () => { dispatch(closeAllOrders()) }
+        // return () => { dispatch(closeAllOrders()) }
     }, [dispatch]);
 
     return (

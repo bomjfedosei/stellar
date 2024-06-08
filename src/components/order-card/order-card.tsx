@@ -14,8 +14,10 @@ export const OrderCard: FC<IOrderTypes> = ({ ingredients, createdAt, name, numbe
     const translatedStatus = convertStatus(status);
 
     const { ingridients } = useSelector(store => store.ingridients);
-    const orderIngridients = getOrderIngridients(ingredients, ingridients)
-    const allIcons = orderIngridients.map((ingridient) => ingridient.image_mobile);
+    const orderIngridients = getOrderIngridients(ingredients, ingridients).filter(item => item !== undefined);
+    const allIcons = orderIngridients.map((ingridient) => 
+        ingridient.image_mobile
+        );
     const sortedIcons = allIcons.filter((x, i) => allIcons.indexOf(x) === i);
     const totalPrice = orderIngridients.reduce((acc: number, ingridient: ICardTypes) => acc + ingridient.price, 0);
     const data = FormattedDate({ date: new Date(createdAt) })

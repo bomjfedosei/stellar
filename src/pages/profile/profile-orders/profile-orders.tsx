@@ -15,7 +15,7 @@ export const ProfileOrdersPage = () => {
         const token = getCookie('accessToken');
         const wsUrl = `wss://norma.nomoreparties.space/orders`;
         dispatch(getUserOrdersConnect(`${wsUrl}?token=${token}`))
-        return () => { dispatch(closeUserOrders()) }
+        // return () => { dispatch(closeUserOrders()) }
     }, [dispatch])
 
     return (

@@ -5,4 +5,5 @@ export const getOrderIngridients = (numbersOfIngridients: string[], ingridients:
     numbersOfIngridients.reduce((acc: ICardTypes[], ingredient) => {
         const current = getElement(ingredient, ingridients);
         return [...acc, current];
+        
     }, []);
