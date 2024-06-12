@@ -1,43 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Main from './Main';
+import App from './components/app/app';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk   from 'redux-thunk';
-import {composeWithDevTools} from '@redux-devtools/extension';
-import { rootReducer } from './services/reducers/index';
-import { assertPipelineBareFunction } from '@babel/types';
+import { store } from './services/store';
 
-// declare global {
-//   interface Window {
-//     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
-//   }
-// }
-
-// const composeEnhancers =
-//   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-const enh = composeWithDevTools(applyMiddleware(thunk));
-
-const store = createStore(rootReducer, enh);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Main />
+        <App />
       </BrowserRouter >
     </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
