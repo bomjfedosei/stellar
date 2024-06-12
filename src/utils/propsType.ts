@@ -16,7 +16,7 @@ export interface ICardTypes {
 export interface IOrderTypes {
     _id: string;
     name: string;
-    ingredients: Array<string>;
+    ingredients: Array<string | null>;
     number: number;
     status: string;
     visibleStatus?: boolean;
