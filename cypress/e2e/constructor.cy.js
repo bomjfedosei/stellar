@@ -1,5 +1,4 @@
 import '@4tw/cypress-drag-drop'
-import { ingredients } from '../fixtures/order.json'
 
 describe('constructor', () => {
 
