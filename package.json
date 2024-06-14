@@ -38,8 +38,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "./", 
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -63,6 +66,7 @@
     "@types/react-scroll": "^1.8.6",
     "@types/uniqid": "^5.3.2",
     "cypress": "^13.11.0",
+    "gh-pages": "^6.1.1",
     "redux-devtools-extension": "^2.13.9"
   }
 }
