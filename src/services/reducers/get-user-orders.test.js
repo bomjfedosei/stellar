@@ -1,13 +1,8 @@
 import { WS_CONNECTION__USER_ORDERS_CLOSED, WS_CONNECTION__USER_ORDERS_ERROR, WS_CONNECTION__USER_ORDERS_SUCCESS, WS_GET_USER_ORDERS } from "../constants"
 import { wsReducerGetUserOrders } from "./get-user-orders"
+import { initialState } from "./get-user-orders"
 
 describe("current-order", () => {
-    const initialState = {
-        wsConnected: false,
-        orders: null,
-        total: 0,
-        totalToday: 0,
-    }
 
     it('test initial state', () => {
         expect(wsReducerGetUserOrders(undefined, {})).toEqual({

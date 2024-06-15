@@ -37,10 +37,6 @@ const getCurrentOrderErrorAction = (): IGetCurrentOrderFailedAction => ({
 });
 
 
-interface IAuthorization {
-    [key: string]: string,
-}
-
 
 export const getCurrentOrder = (pathname: string): AppThunk => {
     return function (dispatch: AppDispatch) {

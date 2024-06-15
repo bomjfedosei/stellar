@@ -1,18 +1,7 @@
 import { GET_PROFILE_DATA_REQUEST, GET_PROFILE_DATA_SUCCESS, USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT_ERROR, USER_LOGOUT_REQUEST, USER_LOGOUT_SUCCESS, USER_REGISTRATION_ERROR, USER_REGISTRATION_REQUEST } from "../constants"
-import { routerReducer } from "./routers"
+import { routerReducer, initialState } from "./routers"
 
 describe('routes', () => {
-
-    const initialState = {
-        user: {
-            email: '',
-            name: '',
-        },
-        isLogedIn: false,
-        isUserDataLoaded: false,
-        isLoading: false,
-        hasError: false,
-    }
 
     it('test initial state', () => {
         expect(routerReducer(undefined, {})).toEqual({

@@ -11,7 +11,7 @@ import styles from './order-card-page.module.css';
 export const OrderCardPage = () => {
     const dispatch = useDispatch();
     const { number = '' } = useParams();
-    const { isLoading, ingridients } = useSelector(store => store.ingridients);
+    const { isLoading } = useSelector(store => store.ingridients);
     const { order } = useSelector((store) => store.currentOrder);
 
     useEffect(() => {

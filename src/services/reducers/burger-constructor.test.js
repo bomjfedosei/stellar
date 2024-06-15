@@ -1,13 +1,9 @@
 import { ADD_BUN, ADD_INGRIDIENT, REMOVE_INGRIDIENT, SET_TOTALPRICE, SORT_INGRIDIENTS } from "../actions/burger-constructor"
 import { burgerConstructorReducer } from "./burger-constructor"
+import { initialState } from "./burger-constructor"
 
 
 describe("Burger-constructor", () => {
-    const initialState = {
-        bun: null,
-        constructorIngridients: [],
-        totalPrice: 0,
-    }
 
     it('test initial state', () => {
         expect(burgerConstructorReducer(undefined, {})).toEqual({

@@ -3,7 +3,7 @@ import '@4tw/cypress-drag-drop'
 describe('constructor', () => {
 
     beforeEach(() => {
-        cy.visit('http://localhost:3000')
+        cy.visit("/")
         cy.intercept("GET", "api/ingredients", { fixture: "ingredients.json" })
         cy.get('a[class^=burger-ingredient-card_container]').as('ingredients')
         cy.get('@ingredients').first().as('bun')

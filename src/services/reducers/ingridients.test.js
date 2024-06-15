@@ -1,13 +1,9 @@
 import { GET_INGRIDIENTS_ERROR, GET_INGRIDIENTS_REQUEST, GET_INGRIDIENTS_SUCCESS } from "../constants"
 import { ingridientsReducer } from "./ingridients"
+import { initialState } from "./ingridients"
 
 describe('ingridients', () => {
 
-    const initialState = {
-        isLoading: false,
-        success: false,
-        ingridients: [],
-    }
 
     it('test initial state', () => {
         expect(ingridientsReducer(undefined, {})).toEqual({

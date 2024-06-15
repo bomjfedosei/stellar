@@ -6,13 +6,9 @@ import {
 } from "../constants"
 import { wsReducerGetAllOrders } from "./get-all-orders"
 
+import { initialState } from "./get-all-orders"
+
 describe("current-order", () => {
-    const initialState = {
-        wsConnected: false,
-        orders: [],
-        total: 0,
-        totalToday: 0,
-    }
 
     it('test initial state', () => {
         expect(wsReducerGetAllOrders(undefined, {})).toEqual({
