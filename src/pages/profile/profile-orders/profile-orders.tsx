@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { getCookie } from 'typescript-cookie';
 import { ListOrders } from '../../../components/order-list/order-list';
-import { closeUserOrders, getUserOrdersConnect } from '../../../services/actions/ws-get-user-orders';
+import { getUserOrdersConnect } from '../../../services/actions/ws-get-user-orders';
 import { useDispatch, useSelector } from '../../../services/typesOfStoreAndThunk'
 import styles from './profile-orders.module.css'
 

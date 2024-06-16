@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import styles from './feed-page.module.css';
 import { useDispatch, useSelector } from '../../services/typesOfStoreAndThunk';
-import { closeAllOrders, getAllOrdersConnect } from "../../services/actions/ws-get-all-orders";
+import { getAllOrdersConnect } from "../../services/actions/ws-get-all-orders";
 import { ListOrders } from "../../components/order-list/order-list";
 
 const wsUrl = 'wss://norma.nomoreparties.space/orders/all';

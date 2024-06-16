@@ -16,7 +16,7 @@ interface IConsructorType {
     totalPrice: number
 }
 
-const initialState: IConsructorType = {
+export const initialState: IConsructorType = {
     bun: null,
     constructorIngridients: [],
     totalPrice: 0,

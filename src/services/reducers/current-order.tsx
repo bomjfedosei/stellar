@@ -11,7 +11,7 @@ interface ICurrentOrder {
     order: null | IOrderTypes;
 }
 
-const initialState: ICurrentOrder = {
+export const initialState: ICurrentOrder = {
     isLoading: false,
     order: null,
 }
