@@ -15,7 +15,7 @@ interface IGetUserOrdersState {
     totalToday: number,
 }
 
-const initialState: IGetUserOrdersState = {
+export const initialState: IGetUserOrdersState = {
     wsConnected: false,
     orders: null,
     total: 0,

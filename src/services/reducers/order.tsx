@@ -10,7 +10,7 @@ interface IOrderState {
     success: boolean,
 }
 
-const initialState: IOrderState = {
+export const initialState: IOrderState = {
     isLoading: false,
     name: null,
     order: {

@@ -15,7 +15,7 @@ interface IGetAllOrdersState {
     totalToday: number,
 }
 
-const initialState: IGetAllOrdersState = {
+export const initialState: IGetAllOrdersState = {
     wsConnected: false,
     orders: [],
     total: 0,

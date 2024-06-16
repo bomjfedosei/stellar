@@ -1,5 +1,7 @@
-import { ORDER_ERROR, ORDER_REQUEST, ORDER_SUCCESS } from "../constants"
-import { orderReducer, initialState } from "./order"
+import { ORDER_ERROR, ORDER_REQUEST, ORDER_SUCCESS } from "../constants";
+import { orderReducer } from "./order";
+import { initialState } from "./order";
+
 
 describe('order', () => {
 

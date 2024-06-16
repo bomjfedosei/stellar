@@ -41,7 +41,7 @@ interface IRouterType {
     hasError: boolean
 }
 
-const initialState: IRouterType = {
+export const initialState: IRouterType = {
     user: {
         email: '',
         name: '',
